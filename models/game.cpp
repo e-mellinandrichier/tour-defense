@@ -1,3 +1,4 @@
+#include "game.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 
@@ -12,7 +13,6 @@ enum TileType {
     END
 };
 
-// Une map simple avec un chemin prédéfini
 int map[MAP_HEIGHT][MAP_WIDTH] = {
     {1,1,1,1,1,0,0,0,0,0},
     {0,0,0,0,1,0,0,0,0,0},
@@ -26,8 +26,7 @@ int map[MAP_HEIGHT][MAP_WIDTH] = {
     {0,0,0,0,0,0,1,0,0,0}
 };
 
-int main()
-{
+void run_game() {
     sf::RenderWindow window(sf::VideoMode(MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE), "Tower Defense");
 
     while (window.isOpen())
@@ -40,21 +39,19 @@ int main()
 
         window.clear();
 
-        // Dessin de la grille
         for (int y = 0; y < MAP_HEIGHT; ++y) {
             for (int x = 0; x < MAP_WIDTH; ++x) {
                 sf::RectangleShape tile(sf::Vector2f(TILE_SIZE, TILE_SIZE));
                 tile.setPosition(x * TILE_SIZE, y * TILE_SIZE);
 
                 if (map[y][x] == PATH) {
-                    tile.setFillColor(sf::Color(200, 200, 0)); // Jaune pour le chemin
+                    tile.setFillColor(sf::Color(200, 200, 0));
                 } else if (map[y][x] == EMPTY) {
-                    tile.setFillColor(sf::Color(100, 100, 100)); // Gris pour terrain vide
+                    tile.setFillColor(sf::Color(100, 100, 100));
                 } else {
-                    tile.setFillColor(sf::Color(255, 0, 0)); // Rouge pour les tours
+                    tile.setFillColor(sf::Color(255, 0, 0));
                 }
 
-                tile.setOutlineThickness(2);
                 tile.setOutlineThickness(1);
                 tile.setOutlineColor(sf::Color::Black);
                 window.draw(tile);
@@ -63,6 +60,4 @@ int main()
 
         window.display();
     }
-
-    return 0;
 }
