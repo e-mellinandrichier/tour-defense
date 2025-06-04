@@ -4,7 +4,7 @@ project(SFMLTest)
 # Chemin vers ton installation SFML
 set(SFML_DIR "${CMAKE_SOURCE_DIR}/sfml-install/lib/cmake/SFML")
 
-find_package(SFML 3 COMPONENTS graphics window system REQUIRED)
+find_package(SFML 2.6 COMPONENTS graphics window system REQUIRED)
 
 add_executable(SFMLTest main.cpp)
 
