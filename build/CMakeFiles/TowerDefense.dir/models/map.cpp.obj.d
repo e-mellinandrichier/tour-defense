@@ -247,4 +247,7 @@ CMakeFiles/TowerDefense.dir/models/map.cpp.obj: \
  C:/msys64/mingw64/include/SFML/Graphics/Glsl.inl \
  C:/msys64/mingw64/include/SFML/Graphics/Sprite.hpp \
  C:/msys64/mingw64/include/SFML/Graphics/Text.hpp \
- C:/msys64/mingw64/include/SFML/Graphics/VertexBuffer.hpp
+ C:/msys64/mingw64/include/SFML/Graphics/VertexBuffer.hpp \
+ C:/msys64/mingw64/include/c++/15.1.0/iostream \
+ C:/msys64/mingw64/include/c++/15.1.0/istream \
+ C:/msys64/mingw64/include/c++/15.1.0/bits/istream.tcc
