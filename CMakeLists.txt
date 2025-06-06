@@ -8,6 +8,7 @@ find_package(SFML COMPONENTS graphics window system REQUIRED)
 
 include_directories(${PROJECT_SOURCE_DIR}/models)
 
+<<<<<<< HEAD
 file(GLOB SOURCES
     "*.cpp"
     "models/*.cpp"
@@ -15,6 +16,12 @@ file(GLOB SOURCES
 
 add_executable(TowerDefense ${SOURCES})
 
+=======
+add_executable(TowerDefense
+    main.cc
+)
+
+>>>>>>> menu
 target_link_libraries(TowerDefense
     sfml-graphics
     sfml-window
