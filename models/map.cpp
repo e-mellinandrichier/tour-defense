@@ -1,5 +1,5 @@
 #include "map.hpp"
-#include "Dino.hpp"
+#include "dino.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
