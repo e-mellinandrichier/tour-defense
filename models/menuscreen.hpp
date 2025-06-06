@@ -1,19 +1,20 @@
-#ifndef MENUSCREEN_HPP
-#define MENUSCREEN_HPP
-
+#include <vector>
 #include <SFML/Graphics.hpp>
 
-class MenuScreen {
-public:
-    MenuScreen(sf::RenderWindow& window);
-    void draw();
 
+class MenuScreen {
 private:
     sf::RenderWindow& window;
-    sf::Font font;
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
-    sf::Text menuText;
-};
+    sf::Font font;
 
-#endif
+    sf::Text titleText;
+    std::vector<sf::Text> options;
+    int selectedOption = 0;
+
+public:
+    MenuScreen(sf::RenderWindow& win);
+    void draw();
+    void handleInput(sf::Event event);
+};

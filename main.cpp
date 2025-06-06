@@ -1,12 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include "models/homescreen.hpp"
 #include "models/menuscreen.hpp"
-#include "GameState.hpp"
+#include "gamestate.hpp"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Volcanos VS Dinos");
 
     GameState state = GameState::HomeScreen;
+
     HomeScreen home(window);
     MenuScreen menu(window);
 
@@ -16,12 +17,19 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            if (state == GameState::HomeScreen)
-                state = home.handleEvents(event);
+            // Gestion par état
+            if (state == GameState::HomeScreen) {
+                GameState newState = home.handleEvents(event);
+                if (newState != state)
+                    state = newState;
+            } else if (state == GameState::MenuScreen) {
+                menu.handleInput(event);
+            }
         }
 
         window.clear();
 
+        // Affichage par état
         if (state == GameState::HomeScreen) {
             home.update();
             home.draw();
