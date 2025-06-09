@@ -76,32 +76,39 @@ std::vector<sf::Vector2i> getPathFromMap(int map[MAP_HEIGHT][MAP_WIDTH]) {
     return path;
 }
 
+void startNextWave(int& waveNumber, int& dinosToSpawn, bool& waitingNextWave, sf::Clock& spawnClock) {
+    waveNumber++;
+    dinosToSpawn = 3 + waveNumber * 2;
+    waitingNextWave = false;
+    spawnClock.restart();
+    std::cout << "=== Vague " << waveNumber << " ===" << std::endl;
+}
+
 void run_game() {
     sf::RenderWindow window(sf::VideoMode(MAP_WIDTH * TILE_SIZE + 200, MAP_HEIGHT * TILE_SIZE), "Volcanos VS Dinos");
 
     std::vector<sf::Vector2i> path = getPathFromMap(map);
-    Dino dino(path);
+    std::vector<Dino*> dinos;
+    std::vector<Tour> tours;
 
-    std::vector<Tour> towers;
-    bool placingTower = false;
+    sf::Clock clock;
+    sf::Clock spawnClock;
+    sf::Clock waveClock;
 
-    sf::Font font;
-    font.loadFromFile("arial.ttf"); // assure-toi que ce fichier existe
+    int currentWave = 0;
+    int dinosToSpawn = 0;
+    float spawnInterval = 1.5f;
+    bool waitingNextWave = true;
 
     sf::RectangleShape sidebar(sf::Vector2f(200, MAP_HEIGHT * TILE_SIZE));
     sidebar.setPosition(MAP_WIDTH * TILE_SIZE, 0);
     sidebar.setFillColor(sf::Color(50, 50, 50));
 
-    sf::RectangleShape addTowerBtn(sf::Vector2f(180, 50));
-    addTowerBtn.setPosition(MAP_WIDTH * TILE_SIZE + 10, 30);
-    addTowerBtn.setFillColor(sf::Color::Green);
+    sf::RectangleShape addTowerButton(sf::Vector2f(180, 50));
+    addTowerButton.setPosition(MAP_WIDTH * TILE_SIZE + 10, 20);
+    addTowerButton.setFillColor(sf::Color(100, 100, 200));
 
-    sf::Text addTowerText;
-    addTowerText.setFont(font);
-    addTowerText.setString("Ajouter Tour");
-    addTowerText.setCharacterSize(18);
-    addTowerText.setFillColor(sf::Color::Black);
-    addTowerText.setPosition(MAP_WIDTH * TILE_SIZE + 20, 40);
+    bool placingTower = false;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -110,25 +117,16 @@ void run_game() {
                 window.close();
 
             if (event.type == sf::Event::MouseButtonPressed) {
-                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
-                if (addTowerBtn.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                if (addTowerButton.getGlobalBounds().contains(mousePos)) {
                     placingTower = true;
-                    std::cout << "Mode placement de tour activé." << std::endl;
-                } else if (placingTower) {
-                    int x = mousePos.x / TILE_SIZE;
-                    int y = mousePos.y / TILE_SIZE;
-
-                    if (x >= 0 && x < MAP_WIDTH &&
-                        y >= 0 && y < MAP_HEIGHT &&
-                        map[y][x] == EMPTY) {
-
-                        towers.emplace_back(sf::Vector2i(x, y));
-                        std::cout << "Tour placée à : " << x << "," << y << std::endl;
-                        placingTower = false;
-                    } else {
-                        std::cout << "❌ Emplacement invalide." << std::endl;
-                    }
+                    std::cout << "Placer une tour : cliquez sur la carte" << std::endl;
+                } else if (placingTower && mousePos.x < MAP_WIDTH * TILE_SIZE) {
+                    sf::Vector2i tilePos(mousePos.x / TILE_SIZE, mousePos.y / TILE_SIZE);
+                    tours.emplace_back(tilePos);
+                    placingTower = false;
+                    std::cout << "Tour placée en : " << tilePos.x << ", " << tilePos.y << std::endl;
                 }
             }
         }
@@ -142,10 +140,8 @@ void run_game() {
 
                 if (map[y][x] == PATH) {
                     tile.setFillColor(sf::Color(200, 200, 0));
-                } else if (map[y][x] == EMPTY) {
-                    tile.setFillColor(sf::Color(100, 100, 100));
                 } else {
-                    tile.setFillColor(sf::Color(255, 0, 0));
+                    tile.setFillColor(sf::Color(100, 100, 100));
                 }
 
                 tile.setOutlineThickness(1);
@@ -154,20 +150,46 @@ void run_game() {
             }
         }
 
-        // Mise à jour des tours
-        std::vector<Dino*> dinos = { &dino };
-        for (auto& tour : towers) {
+        if (waitingNextWave && waveClock.getElapsedTime().asSeconds() > 3.0f) {
+            startNextWave(currentWave, dinosToSpawn, waitingNextWave, spawnClock);
+        }
+
+        if (!waitingNextWave && dinosToSpawn > 0 && spawnClock.getElapsedTime().asSeconds() > spawnInterval) {
+            dinos.push_back(new Dino(path));
+            dinosToSpawn--;
+            spawnClock.restart();
+        }
+
+        for (auto& tour : tours) {
             tour.update(dinos);
             tour.draw(window);
         }
 
-        dino.update();
-        dino.draw(window);
+        for (auto it = dinos.begin(); it != dinos.end(); ) {
+            Dino* dino = *it;
+            dino->update();
+            dino->draw(window);
+
+            if (!dino->alive) {
+                delete dino;
+                it = dinos.erase(it);
+            } else {
+                ++it;
+            }
+        }
+
+        if (!waitingNextWave && dinosToSpawn == 0 && dinos.empty()) {
+            waitingNextWave = true;
+            waveClock.restart();
+        }
 
         window.draw(sidebar);
-        window.draw(addTowerBtn);
-        window.draw(addTowerText);
+        window.draw(addTowerButton);
 
         window.display();
+    }
+
+    for (auto dino : dinos) {
+        delete dino;
     }
 }
