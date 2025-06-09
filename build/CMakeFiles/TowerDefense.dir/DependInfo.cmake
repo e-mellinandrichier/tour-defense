@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/yoels/Documents/La Plateforme/tour-defense/main.cpp" "CMakeFiles/TowerDefense.dir/main.cpp.obj" "gcc" "CMakeFiles/TowerDefense.dir/main.cpp.obj.d"
   "C:/Users/yoels/Documents/La Plateforme/tour-defense/models/dino.cpp" "CMakeFiles/TowerDefense.dir/models/dino.cpp.obj" "gcc" "CMakeFiles/TowerDefense.dir/models/dino.cpp.obj.d"
   "C:/Users/yoels/Documents/La Plateforme/tour-defense/models/map.cpp" "CMakeFiles/TowerDefense.dir/models/map.cpp.obj" "gcc" "CMakeFiles/TowerDefense.dir/models/map.cpp.obj.d"
+  "C:/Users/yoels/Documents/La Plateforme/tour-defense/models/tour.cpp" "CMakeFiles/TowerDefense.dir/models/tour.cpp.obj" "gcc" "CMakeFiles/TowerDefense.dir/models/tour.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

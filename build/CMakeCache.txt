@@ -116,7 +116,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/TowerDefense
 CMAKE_LINKER:FILEPATH=C:/msys64/mingw64/bin/ld.exe
 
 //Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/MinGW/bin/mingw32-make.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/msys64/mingw64/bin/mingw32-make.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

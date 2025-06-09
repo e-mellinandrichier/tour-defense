@@ -200,6 +200,30 @@ models/map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/map.cpp.s
 .PHONY : models/map.cpp.s
 
+models/tour.obj: models/tour.cpp.obj
+.PHONY : models/tour.obj
+
+# target to build an object file
+models/tour.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/tour.cpp.obj
+.PHONY : models/tour.cpp.obj
+
+models/tour.i: models/tour.cpp.i
+.PHONY : models/tour.i
+
+# target to preprocess a source file
+models/tour.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/tour.cpp.i
+.PHONY : models/tour.cpp.i
+
+models/tour.s: models/tour.cpp.s
+.PHONY : models/tour.s
+
+# target to generate assembly for a file
+models/tour.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/tour.cpp.s
+.PHONY : models/tour.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -218,6 +242,9 @@ help:
 	@echo ... models/map.obj
 	@echo ... models/map.i
 	@echo ... models/map.s
+	@echo ... models/tour.obj
+	@echo ... models/tour.i
+	@echo ... models/tour.s
 .PHONY : help
 
 

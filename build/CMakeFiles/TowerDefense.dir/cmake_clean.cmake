@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TowerDefense.dir/models/dino.cpp.obj.d"
   "CMakeFiles/TowerDefense.dir/models/map.cpp.obj"
   "CMakeFiles/TowerDefense.dir/models/map.cpp.obj.d"
+  "CMakeFiles/TowerDefense.dir/models/tour.cpp.obj"
+  "CMakeFiles/TowerDefense.dir/models/tour.cpp.obj.d"
   "TowerDefense.exe"
   "TowerDefense.exe.manifest"
   "TowerDefense.pdb"
