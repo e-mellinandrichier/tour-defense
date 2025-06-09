@@ -1,5 +1,6 @@
 #include "map.hpp"
 #include "Dino.hpp"
+#include "tour.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
@@ -7,7 +8,6 @@
 const int TILE_SIZE = 64;
 const int MAP_WIDTH = 11;
 const int MAP_HEIGHT = 12;
-const int PANEL_WIDTH = 200; // largeur du panneau latéral
 
 enum TileType {
     EMPTY,
@@ -77,36 +77,64 @@ std::vector<sf::Vector2i> getPathFromMap(int map[MAP_HEIGHT][MAP_WIDTH]) {
 }
 
 void run_game() {
-    sf::RenderWindow window(sf::VideoMode(MAP_WIDTH * TILE_SIZE + PANEL_WIDTH, MAP_HEIGHT * TILE_SIZE), "Volcanos VS Dinos");
+    sf::RenderWindow window(sf::VideoMode(MAP_WIDTH * TILE_SIZE + 200, MAP_HEIGHT * TILE_SIZE), "Volcanos VS Dinos");
 
     std::vector<sf::Vector2i> path = getPathFromMap(map);
     Dino dino(path);
 
-    sf::Clock clock;
+    std::vector<Tour> towers;
+    bool placingTower = false;
+
+    sf::Font font;
+    font.loadFromFile("arial.ttf"); // assure-toi que ce fichier existe
+
+    sf::RectangleShape sidebar(sf::Vector2f(200, MAP_HEIGHT * TILE_SIZE));
+    sidebar.setPosition(MAP_WIDTH * TILE_SIZE, 0);
+    sidebar.setFillColor(sf::Color(50, 50, 50));
+
+    sf::RectangleShape addTowerBtn(sf::Vector2f(180, 50));
+    addTowerBtn.setPosition(MAP_WIDTH * TILE_SIZE + 10, 30);
+    addTowerBtn.setFillColor(sf::Color::Green);
+
+    sf::Text addTowerText;
+    addTowerText.setFont(font);
+    addTowerText.setString("Ajouter Tour");
+    addTowerText.setCharacterSize(18);
+    addTowerText.setFillColor(sf::Color::Black);
+    addTowerText.setPosition(MAP_WIDTH * TILE_SIZE + 20, 40);
 
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                std::cout << "Fermeture manuelle." << std::endl;
+            if (event.type == sf::Event::Closed)
                 window.close();
-            }
 
-            // Gestion du clic sur le bouton "Ajouter une tour"
-            else if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                sf::FloatRect btnBounds(MAP_WIDTH * TILE_SIZE + 10, 20, PANEL_WIDTH - 20, 50);
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 
-                if (btnBounds.contains(mousePos)) {
-                    std::cout << "➕ Ajout d'une tour !" << std::endl;
-                    // future logique d'ajout
+                if (addTowerBtn.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    placingTower = true;
+                    std::cout << "Mode placement de tour activé." << std::endl;
+                } else if (placingTower) {
+                    int x = mousePos.x / TILE_SIZE;
+                    int y = mousePos.y / TILE_SIZE;
+
+                    if (x >= 0 && x < MAP_WIDTH &&
+                        y >= 0 && y < MAP_HEIGHT &&
+                        map[y][x] == EMPTY) {
+
+                        towers.emplace_back(sf::Vector2i(x, y));
+                        std::cout << "Tour placée à : " << x << "," << y << std::endl;
+                        placingTower = false;
+                    } else {
+                        std::cout << "❌ Emplacement invalide." << std::endl;
+                    }
                 }
             }
         }
 
         window.clear();
 
-        // Affichage de la carte
         for (int y = 0; y < MAP_HEIGHT; ++y) {
             for (int x = 0; x < MAP_WIDTH; ++x) {
                 sf::RectangleShape tile(sf::Vector2f(TILE_SIZE, TILE_SIZE));
@@ -126,22 +154,19 @@ void run_game() {
             }
         }
 
-        // MAJ & affichage du Dino
-        dino.takeDamage(0.0f);
+        // Mise à jour des tours
+        std::vector<Dino*> dinos = { &dino };
+        for (auto& tour : towers) {
+            tour.update(dinos);
+            tour.draw(window);
+        }
+
         dino.update();
         dino.draw(window);
 
-        // Panneau latéral
-        sf::RectangleShape sidebar(sf::Vector2f(PANEL_WIDTH, MAP_HEIGHT * TILE_SIZE));
-        sidebar.setPosition(MAP_WIDTH * TILE_SIZE, 0);
-        sidebar.setFillColor(sf::Color(40, 40, 40));
         window.draw(sidebar);
-
-        // Bouton "Ajouter une tour"
-        sf::RectangleShape addTowerBtn(sf::Vector2f(PANEL_WIDTH - 20, 50));
-        addTowerBtn.setPosition(MAP_WIDTH * TILE_SIZE + 10, 20);
-        addTowerBtn.setFillColor(sf::Color::Green);
         window.draw(addTowerBtn);
+        window.draw(addTowerText);
 
         window.display();
     }

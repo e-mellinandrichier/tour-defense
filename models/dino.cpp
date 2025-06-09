@@ -91,3 +91,7 @@ void Dino::draw(sf::RenderWindow& window) {
     window.draw(healthBarBack);
     window.draw(healthBarFront);
 }
+
+sf::Vector2f Dino::getPosition() const{
+    return position;
+}

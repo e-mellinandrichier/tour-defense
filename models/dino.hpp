@@ -12,6 +12,8 @@ public:
     void draw(sf::RenderWindow& window);
     void takeDamage(float amount);
 
+    sf::Vector2f getPosition() const;
+
     bool alive;
 
 private:
