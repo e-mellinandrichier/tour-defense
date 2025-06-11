@@ -128,77 +128,101 @@ TowerDefense/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/build
 .PHONY : TowerDefense/fast
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+src/dino.obj: src/dino.cpp.obj
+.PHONY : src/dino.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+src/dino.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/dino.cpp.obj
+.PHONY : src/dino.cpp.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/dino.i: src/dino.cpp.i
+.PHONY : src/dino.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/dino.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/dino.cpp.i
+.PHONY : src/dino.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/dino.s: src/dino.cpp.s
+.PHONY : src/dino.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/dino.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/dino.cpp.s
+.PHONY : src/dino.cpp.s
 
-models/dino.obj: models/dino.cpp.obj
-.PHONY : models/dino.obj
+src/dinofactory.obj: src/dinofactory.cpp.obj
+.PHONY : src/dinofactory.obj
 
 # target to build an object file
-models/dino.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/dino.cpp.obj
-.PHONY : models/dino.cpp.obj
+src/dinofactory.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/dinofactory.cpp.obj
+.PHONY : src/dinofactory.cpp.obj
 
-models/dino.i: models/dino.cpp.i
-.PHONY : models/dino.i
+src/dinofactory.i: src/dinofactory.cpp.i
+.PHONY : src/dinofactory.i
 
 # target to preprocess a source file
-models/dino.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/dino.cpp.i
-.PHONY : models/dino.cpp.i
+src/dinofactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/dinofactory.cpp.i
+.PHONY : src/dinofactory.cpp.i
 
-models/dino.s: models/dino.cpp.s
-.PHONY : models/dino.s
+src/dinofactory.s: src/dinofactory.cpp.s
+.PHONY : src/dinofactory.s
 
 # target to generate assembly for a file
-models/dino.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/dino.cpp.s
-.PHONY : models/dino.cpp.s
+src/dinofactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/dinofactory.cpp.s
+.PHONY : src/dinofactory.cpp.s
 
-models/map.obj: models/map.cpp.obj
-.PHONY : models/map.obj
+src/main.obj: src/main.cpp.obj
+.PHONY : src/main.obj
 
 # target to build an object file
-models/map.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/map.cpp.obj
-.PHONY : models/map.cpp.obj
+src/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/main.cpp.obj
+.PHONY : src/main.cpp.obj
 
-models/map.i: models/map.cpp.i
-.PHONY : models/map.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-models/map.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/map.cpp.i
-.PHONY : models/map.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-models/map.s: models/map.cpp.s
-.PHONY : models/map.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-models/map.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/models/map.cpp.s
-.PHONY : models/map.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/map.obj: src/map.cpp.obj
+.PHONY : src/map.obj
+
+# target to build an object file
+src/map.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/map.cpp.obj
+.PHONY : src/map.cpp.obj
+
+src/map.i: src/map.cpp.i
+.PHONY : src/map.i
+
+# target to preprocess a source file
+src/map.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/map.cpp.i
+.PHONY : src/map.cpp.i
+
+src/map.s: src/map.cpp.s
+.PHONY : src/map.s
+
+# target to generate assembly for a file
+src/map.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/map.cpp.s
+.PHONY : src/map.cpp.s
 
 # Help Target
 help:
@@ -209,15 +233,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TowerDefense
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
-	@echo ... models/dino.obj
-	@echo ... models/dino.i
-	@echo ... models/dino.s
-	@echo ... models/map.obj
-	@echo ... models/map.i
-	@echo ... models/map.s
+	@echo ... src/dino.obj
+	@echo ... src/dino.i
+	@echo ... src/dino.s
+	@echo ... src/dinofactory.obj
+	@echo ... src/dinofactory.i
+	@echo ... src/dinofactory.s
+	@echo ... src/main.obj
+	@echo ... src/main.i
+	@echo ... src/main.s
+	@echo ... src/map.obj
+	@echo ... src/map.i
+	@echo ... src/map.s
 .PHONY : help
 
 
