@@ -6,11 +6,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(SFML COMPONENTS graphics window system REQUIRED)
 
-include_directories(${PROJECT_SOURCE_DIR}/models)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
-file(GLOB SOURCES
-    "*.cpp"
-    "models/*.cpp"
+set(SOURCES
+    src/main.cpp
+    src/dino.cpp
+    src/dinofactory.cpp
+    src/map.cpp
+    src/tower.cpp
+    src/basicdinobehavior.cpp
 )
 
 add_executable(TowerDefense ${SOURCES})
