@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "models/homescreen.hpp"
 #include "models/menuscreen.hpp"
+#include "models/game.hpp"
 #include "gamestate.hpp"
 
 int main() {
@@ -10,6 +11,7 @@ int main() {
 
     HomeScreen home(window);
     MenuScreen menu(window);
+    Game game();
 
     while (window.isOpen()) {
         sf::Event event;
@@ -24,6 +26,8 @@ int main() {
                     state = newState;
             } else if (state == GameState::MenuScreen) {
                 menu.handleInput(event);
+            } else if (state == GameState::Game) {
+                game.rungame();
             }
         }
 

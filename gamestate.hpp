@@ -3,7 +3,10 @@
 
 enum class GameState {
     HomeScreen,
-    MenuScreen
+    MenuScreen,
+    Game,
+    OptionScreen,
+    CreditScreen
 };
 
 #endif

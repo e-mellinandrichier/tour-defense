@@ -1,7 +1,8 @@
 #include "menuscreen.hpp"
+#include "ButtonFactory.hpp"
+#include "../gamestate.hpp"
 #include <iostream>
-#include <SFML/Graphics.hpp>
-
+#include <optional>
 
 MenuScreen::MenuScreen(sf::RenderWindow& win) : window(win) {
     if (!backgroundTexture.loadFromFile("assets/menubg.jpg"))
@@ -15,7 +16,6 @@ MenuScreen::MenuScreen(sf::RenderWindow& win) : window(win) {
     if (!font.loadFromFile("assets/Pixelcraft.ttf"))
         std::cerr << "Erreur chargement police\n";
 
-    // Titre
     titleText.setFont(font);
     titleText.setString("MENU");
     titleText.setCharacterSize(60);
@@ -24,39 +24,36 @@ MenuScreen::MenuScreen(sf::RenderWindow& win) : window(win) {
     titleText.setOrigin(titleBounds.width / 2.f, titleBounds.height / 2.f);
     titleText.setPosition(window.getSize().x / 2.f, window.getSize().y / 6.f);
 
-    // Options
-    std::vector<std::string> labels = { "Play","Scores", "Options", "Credits" };
-    for (size_t i = 0; i < labels.size(); ++i) {
-        sf::Text option;
-        option.setFont(font);
-        option.setString(labels[i]);
-        option.setCharacterSize(40);
-        option.setFillColor(i == selectedOption ? sf::Color::Yellow : sf::Color::White);
-        sf::FloatRect bounds = option.getLocalBounds();
-        option.setOrigin(bounds.width / 2.f, bounds.height / 2.f);
-        option.setPosition(window.getSize().x / 2.f, window.getSize().y / 2.f + i * 60);
-        options.push_back(option);
-    }
+    buttons = ButtonFactory::createMenuButtons(font, window.getSize());
+    buttons[selectedOption].setSelected(true);
 }
 
 void MenuScreen::draw() {
     window.draw(backgroundSprite);
     window.draw(titleText);
-    for (const auto& opt : options)
-        window.draw(opt);
+    for (const auto& btn : buttons)
+        btn.draw(window);
 }
 
 void MenuScreen::handleInput(sf::Event event) {
     if (event.type == sf::Event::KeyPressed) {
+        buttons[selectedOption].setSelected(false);
         if (event.key.code == sf::Keyboard::Up) {
             if (selectedOption > 0) selectedOption--;
         } else if (event.key.code == sf::Keyboard::Down) {
-            if (selectedOption < (int)options.size() - 1) selectedOption++;
+            if (selectedOption < (int)buttons.size() - 1) selectedOption++;
         }
-
-        // Met à jour les couleurs
-        for (size_t i = 0; i < options.size(); ++i) {
-            options[i].setFillColor(i == selectedOption ? sf::Color::Yellow : sf::Color::White);
-        }
+        buttons[selectedOption].setSelected(true);
     }
+}
+
+std::optional<GameState> MenuScreen::getSelectedState() const {
+    std::string label = buttons[selectedOption].getLabel();
+
+    if (label == "Play") return GameState::Game;
+    // else if (label == "Scores") return GameState::ScoreScreen;
+    // else if (label == "Options") return GameState::OptionScreen;
+    // else if (label == "Credits") return GameState::CreditsScreen;
+
+    return std::nullopt;
 }

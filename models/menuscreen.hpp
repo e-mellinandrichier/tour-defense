@@ -1,5 +1,10 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "menubutton.hpp"
+#include <optional>
+#include "../gamestate.hpp"
+
+
 
 
 class MenuScreen {
@@ -11,6 +16,8 @@ private:
 
     sf::Text titleText;
     std::vector<sf::Text> options;
+    std::vector<MenuButton> buttons; 
+    std::optional<GameState> getSelectedState() const;
     int selectedOption = 0;
 
 public:
