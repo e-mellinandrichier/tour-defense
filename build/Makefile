@@ -128,6 +128,30 @@ TowerDefense/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/build
 .PHONY : TowerDefense/fast
 
+src/basicdinobehavior.obj: src/basicdinobehavior.cpp.obj
+.PHONY : src/basicdinobehavior.obj
+
+# target to build an object file
+src/basicdinobehavior.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj
+.PHONY : src/basicdinobehavior.cpp.obj
+
+src/basicdinobehavior.i: src/basicdinobehavior.cpp.i
+.PHONY : src/basicdinobehavior.i
+
+# target to preprocess a source file
+src/basicdinobehavior.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.i
+.PHONY : src/basicdinobehavior.cpp.i
+
+src/basicdinobehavior.s: src/basicdinobehavior.cpp.s
+.PHONY : src/basicdinobehavior.s
+
+# target to generate assembly for a file
+src/basicdinobehavior.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.s
+.PHONY : src/basicdinobehavior.cpp.s
+
 src/dino.obj: src/dino.cpp.obj
 .PHONY : src/dino.obj
 
@@ -224,6 +248,30 @@ src/map.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/map.cpp.s
 .PHONY : src/map.cpp.s
 
+src/tower.obj: src/tower.cpp.obj
+.PHONY : src/tower.obj
+
+# target to build an object file
+src/tower.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/tower.cpp.obj
+.PHONY : src/tower.cpp.obj
+
+src/tower.i: src/tower.cpp.i
+.PHONY : src/tower.i
+
+# target to preprocess a source file
+src/tower.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/tower.cpp.i
+.PHONY : src/tower.cpp.i
+
+src/tower.s: src/tower.cpp.s
+.PHONY : src/tower.s
+
+# target to generate assembly for a file
+src/tower.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TowerDefense.dir\build.make CMakeFiles/TowerDefense.dir/src/tower.cpp.s
+.PHONY : src/tower.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -233,6 +281,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... TowerDefense
+	@echo ... src/basicdinobehavior.obj
+	@echo ... src/basicdinobehavior.i
+	@echo ... src/basicdinobehavior.s
 	@echo ... src/dino.obj
 	@echo ... src/dino.i
 	@echo ... src/dino.s
@@ -245,6 +296,9 @@ help:
 	@echo ... src/map.obj
 	@echo ... src/map.i
 	@echo ... src/map.s
+	@echo ... src/tower.obj
+	@echo ... src/tower.i
+	@echo ... src/tower.s
 .PHONY : help
 
 

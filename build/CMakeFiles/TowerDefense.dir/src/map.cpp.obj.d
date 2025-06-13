@@ -246,8 +246,6 @@ CMakeFiles/TowerDefense.dir/src/map.cpp.obj: \
  C:/msys64/mingw64/include/SFML/Graphics/Sprite.hpp \
  C:/msys64/mingw64/include/SFML/Graphics/Text.hpp \
  C:/msys64/mingw64/include/SFML/Graphics/VertexBuffer.hpp \
- C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/dinofactory.hpp \
- C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/dino.hpp \
  C:/msys64/mingw64/include/c++/14.2.0/memory \
  C:/msys64/mingw64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/align.h \
@@ -261,8 +259,10 @@ CMakeFiles/TowerDefense.dir/src/map.cpp.obj: \
  C:/msys64/mingw64/include/c++/14.2.0/bits/atomic_lockfree_defines.h \
  C:/msys64/mingw64/include/c++/14.2.0/backward/auto_ptr.h \
  C:/msys64/mingw64/include/c++/14.2.0/pstl/glue_memory_defs.h \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/Dino.hpp \
  C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/dinobehavior.hpp \
- C:/msys64/mingw64/include/c++/14.2.0/random \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/speedstrategy.hpp \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/BasicDinoBehavior.hpp \
  C:/msys64/mingw64/include/c++/14.2.0/cmath \
  C:/msys64/mingw64/include/math.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/specfun.h \
@@ -279,18 +279,7 @@ CMakeFiles/TowerDefense.dir/src/map.cpp.obj: \
  C:/msys64/mingw64/include/c++/14.2.0/tr1/poly_hermite.tcc \
  C:/msys64/mingw64/include/c++/14.2.0/tr1/poly_laguerre.tcc \
  C:/msys64/mingw64/include/c++/14.2.0/tr1/riemann_zeta.tcc \
- C:/msys64/mingw64/include/c++/14.2.0/cstdint \
- C:/msys64/mingw64/include/c++/14.2.0/bits/random.h \
- C:/msys64/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/opt_random.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pmmintrin.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/emmintrin.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xmmintrin.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mmintrin.h \
- C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mwaitintrin.h \
- C:/msys64/mingw64/include/c++/14.2.0/bits/random.tcc \
- C:/msys64/mingw64/include/c++/14.2.0/numeric \
- C:/msys64/mingw64/include/c++/14.2.0/bits/stl_numeric.h \
- C:/msys64/mingw64/include/c++/14.2.0/pstl/glue_numeric_defs.h \
- C:/msys64/mingw64/include/c++/14.2.0/set \
- C:/msys64/mingw64/include/c++/14.2.0/bits/stl_set.h \
- C:/msys64/mingw64/include/c++/14.2.0/bits/stl_multiset.h
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/dino.hpp \
+ C:/msys64/mingw64/include/c++/14.2.0/iostream \
+ C:/msys64/mingw64/include/c++/14.2.0/istream \
+ C:/msys64/mingw64/include/c++/14.2.0/bits/istream.tcc

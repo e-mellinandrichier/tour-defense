@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj"
+  "CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj.d"
   "CMakeFiles/TowerDefense.dir/src/dino.cpp.obj"
   "CMakeFiles/TowerDefense.dir/src/dino.cpp.obj.d"
   "CMakeFiles/TowerDefense.dir/src/dinofactory.cpp.obj"
@@ -7,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TowerDefense.dir/src/main.cpp.obj.d"
   "CMakeFiles/TowerDefense.dir/src/map.cpp.obj"
   "CMakeFiles/TowerDefense.dir/src/map.cpp.obj.d"
+  "CMakeFiles/TowerDefense.dir/src/tower.cpp.obj"
+  "CMakeFiles/TowerDefense.dir/src/tower.cpp.obj.d"
   "TowerDefense.exe"
   "TowerDefense.exe.manifest"
   "TowerDefense.pdb"

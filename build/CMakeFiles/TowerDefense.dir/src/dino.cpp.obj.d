@@ -260,6 +260,11 @@ CMakeFiles/TowerDefense.dir/src/dino.cpp.obj: \
  C:/msys64/mingw64/include/c++/14.2.0/backward/auto_ptr.h \
  C:/msys64/mingw64/include/c++/14.2.0/pstl/glue_memory_defs.h \
  C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/dinobehavior.hpp \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/speedstrategy.hpp \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/dinobehavior.hpp \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/speedstrategy.hpp \
+ C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/include/randomspeedstrategy.hpp \
+ C:/msys64/mingw64/include/c++/14.2.0/random \
  C:/msys64/mingw64/include/c++/14.2.0/cmath \
  C:/msys64/mingw64/include/math.h \
  C:/msys64/mingw64/include/c++/14.2.0/bits/specfun.h \
@@ -276,7 +281,6 @@ CMakeFiles/TowerDefense.dir/src/dino.cpp.obj: \
  C:/msys64/mingw64/include/c++/14.2.0/tr1/poly_hermite.tcc \
  C:/msys64/mingw64/include/c++/14.2.0/tr1/poly_laguerre.tcc \
  C:/msys64/mingw64/include/c++/14.2.0/tr1/riemann_zeta.tcc \
- C:/msys64/mingw64/include/c++/14.2.0/random \
  C:/msys64/mingw64/include/c++/14.2.0/cstdint \
  C:/msys64/mingw64/include/c++/14.2.0/bits/random.h \
  C:/msys64/mingw64/include/c++/14.2.0/x86_64-w64-mingw32/bits/opt_random.h \

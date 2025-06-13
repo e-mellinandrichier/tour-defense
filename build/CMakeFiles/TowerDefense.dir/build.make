@@ -131,12 +131,44 @@ CMakeFiles/TowerDefense.dir/src/map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TowerDefense.dir/src/map.cpp.s"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\map.cpp -o CMakeFiles\TowerDefense.dir\src\map.cpp.s
 
+CMakeFiles/TowerDefense.dir/src/tower.cpp.obj: CMakeFiles/TowerDefense.dir/flags.make
+CMakeFiles/TowerDefense.dir/src/tower.cpp.obj: CMakeFiles/TowerDefense.dir/includes_CXX.rsp
+CMakeFiles/TowerDefense.dir/src/tower.cpp.obj: C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/src/tower.cpp
+CMakeFiles/TowerDefense.dir/src/tower.cpp.obj: CMakeFiles/TowerDefense.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TowerDefense.dir/src/tower.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TowerDefense.dir/src/tower.cpp.obj -MF CMakeFiles\TowerDefense.dir\src\tower.cpp.obj.d -o CMakeFiles\TowerDefense.dir\src\tower.cpp.obj -c C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\tower.cpp
+
+CMakeFiles/TowerDefense.dir/src/tower.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TowerDefense.dir/src/tower.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\tower.cpp > CMakeFiles\TowerDefense.dir\src\tower.cpp.i
+
+CMakeFiles/TowerDefense.dir/src/tower.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TowerDefense.dir/src/tower.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\tower.cpp -o CMakeFiles\TowerDefense.dir\src\tower.cpp.s
+
+CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj: CMakeFiles/TowerDefense.dir/flags.make
+CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj: CMakeFiles/TowerDefense.dir/includes_CXX.rsp
+CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj: C:/Users/jerom/OneDrive/Bureau/C-C++/tour-defense/src/basicdinobehavior.cpp
+CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj: CMakeFiles/TowerDefense.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj -MF CMakeFiles\TowerDefense.dir\src\basicdinobehavior.cpp.obj.d -o CMakeFiles\TowerDefense.dir\src\basicdinobehavior.cpp.obj -c C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\basicdinobehavior.cpp
+
+CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\basicdinobehavior.cpp > CMakeFiles\TowerDefense.dir\src\basicdinobehavior.cpp.i
+
+CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\src\basicdinobehavior.cpp -o CMakeFiles\TowerDefense.dir\src\basicdinobehavior.cpp.s
+
 # Object files for target TowerDefense
 TowerDefense_OBJECTS = \
 "CMakeFiles/TowerDefense.dir/src/main.cpp.obj" \
 "CMakeFiles/TowerDefense.dir/src/dino.cpp.obj" \
 "CMakeFiles/TowerDefense.dir/src/dinofactory.cpp.obj" \
-"CMakeFiles/TowerDefense.dir/src/map.cpp.obj"
+"CMakeFiles/TowerDefense.dir/src/map.cpp.obj" \
+"CMakeFiles/TowerDefense.dir/src/tower.cpp.obj" \
+"CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj"
 
 # External object files for target TowerDefense
 TowerDefense_EXTERNAL_OBJECTS =
@@ -145,6 +177,8 @@ TowerDefense.exe: CMakeFiles/TowerDefense.dir/src/main.cpp.obj
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/src/dino.cpp.obj
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/src/dinofactory.cpp.obj
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/src/map.cpp.obj
+TowerDefense.exe: CMakeFiles/TowerDefense.dir/src/tower.cpp.obj
+TowerDefense.exe: CMakeFiles/TowerDefense.dir/src/basicdinobehavior.cpp.obj
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/build.make
 TowerDefense.exe: C:/msys64/mingw64/lib/libsfml-graphics.dll.a
 TowerDefense.exe: C:/msys64/mingw64/lib/libsfml-window.dll.a
@@ -152,7 +186,7 @@ TowerDefense.exe: C:/msys64/mingw64/lib/libsfml-system.dll.a
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/linkLibs.rsp
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/objects1.rsp
 TowerDefense.exe: CMakeFiles/TowerDefense.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable TowerDefense.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\jerom\OneDrive\Bureau\C-C++\tour-defense\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable TowerDefense.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\TowerDefense.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
