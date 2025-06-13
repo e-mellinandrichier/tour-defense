@@ -85,6 +85,8 @@ void startNextWave(int& waveNumber, int& dinosToSpawn, bool& waitingNextWave, sf
 }
 
 void run_game() {
+    std::cout << "run_game() lancé !" << std::endl;
+
     sf::RenderWindow window(sf::VideoMode(MAP_WIDTH * TILE_SIZE + 200, MAP_HEIGHT * TILE_SIZE), "Volcanos VS Dinos");
 
     std::vector<sf::Vector2i> path = getPathFromMap(map);
