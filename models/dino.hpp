@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <Vector2.hpp>
 
 class Dino {
 public:
