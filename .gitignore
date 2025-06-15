@@ -1,0 +1,25 @@
+# === Fichiers de build / CMake
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/*.sln
+/*.vcxproj*
+/Debug/
+/Release/
+
+# === Executables
+/*.exe
+/*.out
+/*.app
+
+# === VSCode local settings
+.vscode/
+
+# === Fichiers système Windows/Mac
+.DS_Store
+Thumbs.db
+
+# === SFML builds si jamais tu compiles en local
+sfml-build/
