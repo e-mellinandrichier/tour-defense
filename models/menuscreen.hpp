@@ -1,28 +1,27 @@
-#include <vector>
+#ifndef MENUSCREEN_HPP
+#define MENUSCREEN_HPP
+
 #include <SFML/Graphics.hpp>
+#include <vector>
 #include "menubutton.hpp"
 #include <optional>
-#include "../gamestate.hpp"
-
-
-
+#include "gamestate.hpp"
 
 class MenuScreen {
+public:
+    MenuScreen(sf::RenderWindow& window);
+    void draw();
+    std::optional<GameState> handleInput(sf::Event event);
+
 private:
     sf::RenderWindow& window;
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
     sf::Font font;
-
     sf::Text titleText;
-    std::vector<sf::Text> options;
-    std::vector<MenuButton> buttons; 
-    std::optional<GameState> getSelectedState() const;
+    std::vector<MenuButton> buttons;
     int selectedOption = 0;
-
-public:
-    MenuScreen(sf::RenderWindow& win);
-    void draw();
-    std::optional<GameState> handleInput(sf::Event event);
-
+    std::optional<GameState> getSelectedState() const;
 };
+
+#endif

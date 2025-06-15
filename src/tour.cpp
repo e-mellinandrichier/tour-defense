@@ -1,13 +1,13 @@
-#include "tour.hpp"
+#include "../models/tour.hpp"
 #include <cmath>
 
 const int TILE_SIZE = 64;
 
 Tour::Tour(sf::Vector2i gridPos) {
     position = sf::Vector2f(gridPos.x * TILE_SIZE, gridPos.y * TILE_SIZE);
-    range = 128.0f;     // portée en pixels
+    range = 128.0f;
     damage = 10.0f;
-    fireRate = 1.0f;    // une attaque par seconde
+    fireRate = 1.0f;
 
     shape.setSize(sf::Vector2f(TILE_SIZE, TILE_SIZE));
     shape.setFillColor(sf::Color::Blue);
@@ -20,16 +20,14 @@ void Tour::update(std::vector<Dino*>& dinos) {
 
     for (Dino* dino : dinos) {
         if (!dino->alive) continue;
-
-        sf::Vector2f dinoPos = dino->getPosition();  // Tu devras créer getPosition() dans Dino.hpp
+        sf::Vector2f dinoPos = dino->getPosition();
         float dx = dinoPos.x - position.x;
         float dy = dinoPos.y - position.y;
         float dist = std::sqrt(dx * dx + dy * dy);
-
         if (dist <= range) {
             dino->takeDamage(damage);
             fireClock.restart();
-            break; // attaque un seul ennemi par tour
+            break;
         }
     }
 }

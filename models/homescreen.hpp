@@ -2,7 +2,7 @@
 #define HOMESCREEN_HPP
 
 #include <SFML/Graphics.hpp>
-#include "../gamestate.hpp"
+#include "gamestate.hpp"
 
 class HomeScreen {
 public:

@@ -1,5 +1,4 @@
-// MenuButton.cpp
-#include "MenuButton.hpp"
+#include "../models/menubutton.hpp"
 
 MenuButton::MenuButton(const std::string& label, const sf::Font& font, unsigned int size, sf::Vector2f position) {
     text.setFont(font);
@@ -9,7 +8,6 @@ MenuButton::MenuButton(const std::string& label, const sf::Font& font, unsigned 
     sf::FloatRect bounds = text.getLocalBounds();
     text.setOrigin(bounds.width / 2.f, bounds.height / 2.f);
     text.setPosition(position);
-    // sf::Text label;
 }
 
 void MenuButton::draw(sf::RenderWindow& window) const {
@@ -20,10 +18,5 @@ void MenuButton::setSelected(bool selected) {
     text.setFillColor(selected ? sf::Color::Yellow : sf::Color::White);
 }
 
-const sf::Text& MenuButton::getText() const {
-    return text;
-}
-
-std::string MenuButton::getLabel() const {
-    return label.getString();
-}
+const sf::Text& MenuButton::getText() const { return text; }
+std::string MenuButton::getLabel() const { return text.getString(); }

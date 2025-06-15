@@ -6,13 +6,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
-include_directories(${PROJECT_SOURCE_DIR}/models)
+include_directories(models)
+include_directories(src)
 
 add_executable(TowerDefense
     main.cpp
-    models/map.cpp
-    models/dino.cpp
-    models/tour.cpp
+    src/dino.cpp
+    src/map.cpp
+    src/tour.cpp
+    src/homescreen.cpp
+    src/menuscreen.cpp
+    src/menubutton.cpp
+    src/buttonfactory.cpp
+    src/game.cpp
 )
 
 target_link_libraries(TowerDefense

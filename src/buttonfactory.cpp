@@ -1,5 +1,4 @@
-// ButtonFactory.cpp
-#include "ButtonFactory.hpp"
+#include "../models/buttonfactory.hpp"
 
 std::vector<MenuButton> ButtonFactory::createMenuButtons(const sf::Font& font, sf::Vector2u windowSize) {
     std::vector<MenuButton> buttons;
@@ -9,6 +8,5 @@ std::vector<MenuButton> ButtonFactory::createMenuButtons(const sf::Font& font, s
         sf::Vector2f pos(windowSize.x / 2.f, windowSize.y / 2.f + i * 60);
         buttons.emplace_back(labels[i], font, 40, pos);
     }
-
     return buttons;
 }

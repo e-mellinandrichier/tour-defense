@@ -1,8 +1,7 @@
-// ButtonFactory.hpp
 #ifndef BUTTONFACTORY_HPP
 #define BUTTONFACTORY_HPP
 
-#include "MenuButton.hpp"
+#include "menubutton.hpp"
 #include <vector>
 
 class ButtonFactory {
