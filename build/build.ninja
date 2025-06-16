@@ -125,6 +125,15 @@ build CMakeFiles/TowerDefense.dir/src/game.cpp.obj: CXX_COMPILER__TowerDefense_u
   TARGET_COMPILE_PDB = CMakeFiles\TowerDefense.dir\
   TARGET_PDB = TowerDefense.pdb
 
+build CMakeFiles/TowerDefense.dir/src/optionsscreen.cpp.obj: CXX_COMPILER__TowerDefense_unscanned_ C$:/Users/yoels/Documents/La$ Plateforme/tour-defense/src/optionsscreen.cpp || cmake_object_order_depends_target_TowerDefense
+  DEP_FILE = CMakeFiles\TowerDefense.dir\src\optionsscreen.cpp.obj.d
+  FLAGS = -std=gnu++17
+  INCLUDES = -I"C:/Users/yoels/Documents/La Plateforme/tour-defense/models" -I"C:/Users/yoels/Documents/La Plateforme/tour-defense/src"
+  OBJECT_DIR = CMakeFiles\TowerDefense.dir
+  OBJECT_FILE_DIR = CMakeFiles\TowerDefense.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\TowerDefense.dir\
+  TARGET_PDB = TowerDefense.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TowerDefense
@@ -133,8 +142,8 @@ build CMakeFiles/TowerDefense.dir/src/game.cpp.obj: CXX_COMPILER__TowerDefense_u
 #############################################
 # Link the executable TowerDefense.exe
 
-build TowerDefense.exe: CXX_EXECUTABLE_LINKER__TowerDefense_ CMakeFiles/TowerDefense.dir/main.cpp.obj CMakeFiles/TowerDefense.dir/src/dino.cpp.obj CMakeFiles/TowerDefense.dir/src/map.cpp.obj CMakeFiles/TowerDefense.dir/src/tour.cpp.obj CMakeFiles/TowerDefense.dir/src/homescreen.cpp.obj CMakeFiles/TowerDefense.dir/src/menuscreen.cpp.obj CMakeFiles/TowerDefense.dir/src/menubutton.cpp.obj CMakeFiles/TowerDefense.dir/src/buttonfactory.cpp.obj CMakeFiles/TowerDefense.dir/src/game.cpp.obj | C$:/msys64/mingw64/lib/libsfml-graphics.dll.a C$:/msys64/mingw64/lib/libsfml-window.dll.a C$:/msys64/mingw64/lib/libsfml-system.dll.a
-  LINK_LIBRARIES = C:/msys64/mingw64/lib/libsfml-graphics.dll.a  C:/msys64/mingw64/lib/libsfml-window.dll.a  C:/msys64/mingw64/lib/libsfml-system.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+build TowerDefense.exe: CXX_EXECUTABLE_LINKER__TowerDefense_ CMakeFiles/TowerDefense.dir/main.cpp.obj CMakeFiles/TowerDefense.dir/src/dino.cpp.obj CMakeFiles/TowerDefense.dir/src/map.cpp.obj CMakeFiles/TowerDefense.dir/src/tour.cpp.obj CMakeFiles/TowerDefense.dir/src/homescreen.cpp.obj CMakeFiles/TowerDefense.dir/src/menuscreen.cpp.obj CMakeFiles/TowerDefense.dir/src/menubutton.cpp.obj CMakeFiles/TowerDefense.dir/src/buttonfactory.cpp.obj CMakeFiles/TowerDefense.dir/src/game.cpp.obj CMakeFiles/TowerDefense.dir/src/optionsscreen.cpp.obj | C$:/msys64/mingw64/lib/libsfml-graphics.dll.a C$:/msys64/mingw64/lib/libsfml-window.dll.a C$:/msys64/mingw64/lib/libsfml-audio.dll.a C$:/msys64/mingw64/lib/libsfml-system.dll.a
+  LINK_LIBRARIES = C:/msys64/mingw64/lib/libsfml-graphics.dll.a  C:/msys64/mingw64/lib/libsfml-window.dll.a  C:/msys64/mingw64/lib/libsfml-audio.dll.a  C:/msys64/mingw64/lib/libsfml-system.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TowerDefense.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D "C:\Users\yoels\Documents\La Plateforme\tour-defense\build" && C:\msys64\mingw64\bin\cmake.exe -E copy_directory "C:/Users/yoels/Documents/La Plateforme/tour-defense/assets" "C:/Users/yoels/Documents/La Plateforme/tour-defense/build/assets""
   PRE_LINK = cd .
