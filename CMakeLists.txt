@@ -23,6 +23,7 @@ add_executable(TowerDefense
     src/buttonfactory.cpp
     src/game.cpp
     src/optionsscreen.cpp
+    src/creditscreen.cpp
 )
 
 # Link SFML

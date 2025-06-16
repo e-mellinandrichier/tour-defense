@@ -32,7 +32,7 @@ void OptionsScreen::draw() {
 
 void OptionsScreen::updateVolumeText() {
     int vol = static_cast<int>(backgroundMusic.getVolume());
-    volumeText.setString("Volume : " + std::to_string(vol) + "%");
+    volumeText.setString("Volume  " + std::to_string(vol) + "");
 }
 
 std::optional<int> OptionsScreen::handleInput(const sf::Event& event) {
