@@ -33,7 +33,18 @@ private:
     sf::RectangleShape addTowerButton;
     bool placingTower;
 
+    int playerMoney;
+    int playerHealth;
+    const int TOWER_COST = 50;
+
+    sf::Font font;
+    sf::Text moneyText;
+    sf::Text healthLabelText;
+    sf::Text healthValueText;
+
     void startNextWave();
+    void updateMoneyText();
+    void updateHealthText();
 };
 
 #endif

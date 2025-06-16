@@ -7,19 +7,26 @@
 class Dino {
 public:
     Dino(const std::vector<sf::Vector2i>& path);
+
     void update();
     void draw(sf::RenderWindow& window);
     void takeDamage(float amount);
+
     sf::Vector2f getPosition() const;
+
     bool alive;
+    bool reachedEnd;
 
 private:
     void updateHealthBar();
+
     float health;
     float speed;
     sf::Vector2f position;
+
     std::vector<sf::Vector2i> path;
     size_t currentIndex;
+
     sf::RectangleShape shape;
     sf::RectangleShape healthBarBack;
     sf::RectangleShape healthBarFront;

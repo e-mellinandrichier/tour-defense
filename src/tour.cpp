@@ -10,7 +10,7 @@ Tour::Tour(sf::Vector2i gridPos) {
     fireRate = 1.0f;
 
     shape.setSize(sf::Vector2f(TILE_SIZE, TILE_SIZE));
-    shape.setFillColor(sf::Color::Blue);
+    shape.setFillColor(sf::Color(0, 150, 255));  // Couleur plus visible
     shape.setPosition(position);
 }
 

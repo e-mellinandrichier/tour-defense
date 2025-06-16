@@ -2,17 +2,43 @@
 #include <iostream>
 
 Game::Game(sf::RenderWindow& win) : window(win), currentWave(0), dinosToSpawn(0),
-    spawnInterval(1.5f), waitingNextWave(true), placingTower(false) {
+    spawnInterval(1.5f), waitingNextWave(true), placingTower(false),
+    playerMoney(200), playerHealth(10) {
 
     path = getPathFromMap(map);
 
-    sidebar.setSize(sf::Vector2f(200, MAP_HEIGHT * TILE_SIZE));
+    // On élargit ici à 500px
+    sidebar.setSize(sf::Vector2f(500, MAP_HEIGHT * TILE_SIZE));
     sidebar.setPosition(MAP_WIDTH * TILE_SIZE, 0);
     sidebar.setFillColor(sf::Color(50, 50, 50));
 
-    addTowerButton.setSize(sf::Vector2f(180, 50));
+    addTowerButton.setSize(sf::Vector2f(480, 50));
     addTowerButton.setPosition(MAP_WIDTH * TILE_SIZE + 10, 20);
     addTowerButton.setFillColor(sf::Color(100, 100, 200));
+
+    if (!font.loadFromFile("assets/Pixelcraft.ttf")) {
+        std::cerr << "Erreur chargement police !" << std::endl;
+    }
+
+    float sidebarX = MAP_WIDTH * TILE_SIZE;
+
+    moneyText.setFont(font);
+    moneyText.setCharacterSize(32);
+    moneyText.setFillColor(sf::Color::White);
+    moneyText.setString(std::to_string(playerMoney));
+    moneyText.setPosition(sidebarX + 40, 80);
+
+    healthLabelText.setFont(font);
+    healthLabelText.setCharacterSize(24);
+    healthLabelText.setFillColor(sf::Color::Red);
+    healthLabelText.setString("HP");
+    healthLabelText.setPosition(sidebarX + 40, 150);
+
+    healthValueText.setFont(font);
+    healthValueText.setCharacterSize(24);
+    healthValueText.setFillColor(sf::Color::Red);
+    healthValueText.setString(std::to_string(playerHealth));
+    healthValueText.setPosition(sidebarX + 180, 150);
 }
 
 void Game::startNextWave() {
@@ -31,10 +57,16 @@ void Game::handleEvents(sf::Event& event) {
             placingTower = true;
             std::cout << "Placer une tour : cliquez sur la carte" << std::endl;
         } else if (placingTower && mousePos.x < MAP_WIDTH * TILE_SIZE) {
-            sf::Vector2i tilePos(mousePos.x / TILE_SIZE, mousePos.y / TILE_SIZE);
-            tours.emplace_back(tilePos);
-            placingTower = false;
-            std::cout << "Tour placée en : " << tilePos.x << ", " << tilePos.y << std::endl;
+            if (playerMoney >= TOWER_COST) {
+                sf::Vector2i tilePos(mousePos.x / TILE_SIZE, mousePos.y / TILE_SIZE);
+                tours.emplace_back(tilePos);
+                playerMoney -= TOWER_COST;
+                updateMoneyText();
+                placingTower = false;
+                std::cout << "Tour placée en (" << tilePos.x << ", " << tilePos.y << "). Argent restant : " << playerMoney << std::endl;
+            } else {
+                std::cout << "Pas assez d'argent pour acheter une tour !" << std::endl;
+            }
         }
     }
 }
@@ -57,6 +89,14 @@ void Game::update() {
         dino->update();
 
         if (!dino->alive) {
+            if (dino->reachedEnd) {
+                playerHealth--;
+                updateHealthText();
+                std::cout << "Un dino est passé ! Santé restante : " << playerHealth << std::endl;
+            } else {
+                playerMoney += 10;
+                updateMoneyText();
+            }
             delete dino;
             it = dinos.erase(it);
         } else {
@@ -93,4 +133,15 @@ void Game::draw() {
 
     window.draw(sidebar);
     window.draw(addTowerButton);
+    window.draw(moneyText);
+    window.draw(healthLabelText);
+    window.draw(healthValueText);
+}
+
+void Game::updateMoneyText() {
+    moneyText.setString(std::to_string(playerMoney));
+}
+
+void Game::updateHealthText() {
+    healthValueText.setString(std::to_string(playerHealth));
 }
