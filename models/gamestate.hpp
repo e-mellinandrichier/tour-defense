@@ -5,7 +5,7 @@ enum class GameState {
     HomeScreen,
     MenuScreen,
     Game,
-    OptionScreen,
+    OptionsScreen,
     CreditScreen
 };
 

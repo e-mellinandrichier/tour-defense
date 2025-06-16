@@ -22,6 +22,7 @@ add_executable(TowerDefense
     src/menubutton.cpp
     src/buttonfactory.cpp
     src/game.cpp
+    src/optionsscreen.cpp
 )
 
 # Lien SFML
@@ -29,6 +30,7 @@ target_link_libraries(TowerDefense
     sfml-graphics
     sfml-window
     sfml-system
+    sfml-audio
 )
 
 # ---------- 🎯 Gestion automatique des assets 🎯 ----------
