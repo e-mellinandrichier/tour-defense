@@ -49,5 +49,6 @@ std::optional<GameState> MenuScreen::getSelectedState() const {
     std::string label = buttons[selectedOption].getLabel();
     if (label == "Play") return GameState::Game;
     if (label == "Options") return GameState::OptionsScreen;
+    if (label == "Credits") return GameState::CreditScreen;
     return std::nullopt;
 }

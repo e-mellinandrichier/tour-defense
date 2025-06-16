@@ -1,31 +1,35 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <iostream>
+
 #include "models/gamestate.hpp"
 #include "models/homescreen.hpp"
 #include "models/menuscreen.hpp"
 #include "models/optionsscreen.hpp"
+#include "models/creditscreen.hpp"
 #include "models/game.hpp"
-#include <iostream>
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Volcanos VS Dinos");
     GameState state = GameState::HomeScreen;
 
     sf::Music backgroundMusic;
-
     if (!backgroundMusic.openFromFile("assets/jurassicpark.wav")) {
         std::cerr << "Erreur : impossible de charger la musique\n";
         return -1;
     }
     backgroundMusic.setLoop(true);
-    backgroundMusic.setVolume(50.f);  // volume initial à 50%
+    backgroundMusic.setVolume(50.f); // volume initial
     backgroundMusic.play();
 
-    OptionsScreen options(window, backgroundMusic);
-
+    // Écrans
     HomeScreen home(window);
     MenuScreen menu(window);
+    OptionsScreen options(window, backgroundMusic);
+    CreditScreen credits(window);
     Game game(window);
+
+    sf::Clock clock;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -34,6 +38,7 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
+            // Gestion des inputs selon l’état
             if (state == GameState::HomeScreen)
                 state = home.handleEvents(event);
             else if (state == GameState::MenuScreen) {
@@ -45,13 +50,19 @@ int main() {
                 game.handleEvents(event);
             else if (state == GameState::OptionsScreen) {
                 auto result = options.handleInput(event);
-                if (result.has_value()) {
+                if (result.has_value())
                     state = GameState::MenuScreen;
-                    // plus besoin de mettre à jour backgroundMusic ici
+            }
+            else if (state == GameState::CreditScreen) {
+                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+                    state = GameState::HomeScreen;
                 }
             }
         }
 
+        float dt = clock.restart().asSeconds();
+
+        // Rendu
         window.clear();
 
         if (state == GameState::HomeScreen) {
@@ -64,8 +75,13 @@ int main() {
             game.update();
             game.draw();
         }
-        else if (state == GameState::OptionsScreen) {
+        else if (state == GameState::OptionsScreen)
             options.draw();
+        else if (state == GameState::CreditScreen) {
+            credits.update(dt);
+            credits.draw();
+            if (credits.isFinished())
+                state = GameState::HomeScreen;
         }
 
         window.display();
