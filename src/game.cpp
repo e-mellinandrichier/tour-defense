@@ -3,7 +3,7 @@
 
 Game::Game(sf::RenderWindow& win) : window(win), currentWave(0), dinosToSpawn(0),
     spawnInterval(1.5f), waitingNextWave(true), placingTower(false),
-    playerMoney(200), playerHealth(10) {
+    playerMoney(400), playerHealth(10) {
 
     path = getPathFromMap(map);
 

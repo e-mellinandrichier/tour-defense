@@ -10,7 +10,7 @@
 #include "models/game.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Volcanos VS Dinos");
+    sf::RenderWindow window(sf::VideoMode(1000, 800), "Volcanos VS Dinos");
     GameState state = GameState::HomeScreen;
 
     sf::Music backgroundMusic;
